@@ -2,7 +2,29 @@
 
 > **FLHack Project** | Built with Microsoft AI Foundry & VS Code
 
-An end-to-end system that ingests Cherwell ITSM tickets, mines them with a multi-agent AI pipeline on Azure AI Foundry, and publishes structured knowledge base articles to SharePoint — discoverable via Azure AI Search.
+## Introduction
+
+Many IT organizations accumulate years of resolved support tickets in tools like Cherwell, but that institutional knowledge is rarely searchable or reusable. Agents spend time re-solving the same problems, and new staff have no structured way to learn from past resolutions.
+
+This project builds an **automated knowledge mining pipeline** that extracts value from historical Cherwell ITSM data and transforms it into a living, AI-curated knowledge base in SharePoint — powered by Microsoft AI Foundry.
+
+The system:
+- **Pulls** resolved tickets, work notes, and attachments from Cherwell via REST API
+- **Normalizes** raw ticket data into a structured canonical model using Azure Functions
+- **Processes** each ticket through a 5-agent AI pipeline on Azure AI Foundry — extracting, classifying, summarizing, validating, and publishing the knowledge
+- **Publishes** polished, PII-scrubbed knowledge base articles directly to a SharePoint list
+- **Indexes** all content in Azure AI Search for fast semantic retrieval
+- **Monitors** the entire pipeline with Azure Monitor and Application Insights
+
+The result is a continuously updated knowledge base that captures institutional IT expertise — automatically, at scale.
+
+---
+
+## System Architecture
+
+![API-Based Ingestion and Knowledge Mining for Cherwell to SharePoint](docs/architecture.png)
+
+The diagram above shows the full data flow: from Cherwell on-premises through the Azure Function ingestion layer, into the AI Foundry 5-agent processing pipeline, and finally published to the SharePoint Knowledge Base — with Azure AI Search and monitoring across the bottom tier.
 
 ---
 
